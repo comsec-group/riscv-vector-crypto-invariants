@@ -1,0 +1,61 @@
+################
+# prove config #
+################
+
+# The number of jobs per engine can increase, up to the limit you set, as licenses become available.
+set maxJobs 50
+# Chooses engines automatically, re-orders propertyies automatically, changes per_property_time_limit automatically, takes per_property_time_limit_factor into account
+set_prove_orchestration on
+# muCFI engines
+# set_engine_mode {M N AM Mp}
+# rtl2mupath engines
+# set_engine_mode {K C Tri I N AD AM Hp B}
+set_engine_mode auto
+# Supposed to stop the prove command after t time units. Should also stop the proof orchestration from restarting.
+set_prove_time_limit 0
+set_prove_per_property_time_limit 1s
+# time per proof attempt = per_property_time_limit * factor ** iteration_nr
+set_prove_per_property_time_limit_factor 10
+set_proofgrid_mode local
+# This one should have no effect in local mode:
+set_proofgrid_max_jobs 0
+set_proofgrid_per_engine_max_local_jobs 50
+# Uses only 2 proof threads with this settings and then starts more with default settings?? Why??
+set_proofgrid_per_engine_max_jobs $maxJobs
+# Debug
+# set_prove_verbosity 11
+set_prove_verbosity 4
+
+
+prove -bg -with_helpers -all
+
+set iterator 0
+set rapidfire_iterator 0
+
+<SET_VARIABLES>
+
+while {$iterator ne $limit} {
+
+    #log every rapidfire_interval until the first interval is reached
+    while {$rapidfire_iterator ne ($interval / $rapidfire_interval)} {
+        incr rapidfire_iterator
+
+        after $rapidfire_interval
+
+<SET_REPORT_RAPID>
+    }
+    incr iterator
+
+<SET_REPORT>
+
+    puts "creating report"
+
+    if {$iterator eq ($limit - 1)} {
+        puts "exiting"
+        prove -stop
+        exit
+    }
+
+    after $interval
+}
+
