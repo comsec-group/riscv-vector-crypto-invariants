@@ -93,22 +93,22 @@ We reccommend running the entire script in a tmux session or similar environment
 After the testruns are done, the results can be evaluated with the test_analyzer.py script. To do this, simply change the relevant file and directory names at the bottom of the script and then let it run. The resulting table evaluates the 10 metrics defined in my thesis, where I also explain in detail what each of the metrics means.
 
 #### Metric Description
-***Success Points*** Invariant assertion and result assertion reached proof
-***Presence Points*** Invariant assertion did not prove but result did
-***Success insufficient*** Invariant assertion reached proof but result did not
-***Average time on success*** Average time to infinity bound proof for invariant assertion
-***Success Chance*** Ratio of invariant assertion reaching proof (not related to
+- ***Success Points*** Invariant assertion and result assertion reached proof
+- ***Presence Points*** Invariant assertion did not prove but result did
+- ***Success insufficient*** Invariant assertion reached proof but result did not
+- ***Average time on success*** Average time to infinity bound proof for invariant assertion
+- ***Success Chance*** Ratio of invariant assertion reaching proof (not related to
 success of result assertion)
-***Influenced others*** How many other assertions were positively impacted in speed
+- ***Influenced others*** How many other assertions were positively impacted in speed
 by this assertion
-***Influence impact*** How much time other assertions saved in total whenever this
+- ***Influence impact*** How much time other assertions saved in total whenever this
 assertion was active
-***Time saved on result*** How much time the result assertion saved in total whenever
+- ***Time saved on result*** How much time the result assertion saved in total whenever
 this assertion was active and the result assertion reached a
 proof faster than average
-***Influence Points*** What other assertions accelerated the proof speed of this as-
+- ***Influence Points*** What other assertions accelerated the proof speed of this as-
 sertion the most often (ordered list)
-***Influence time benefited*** What other assertion saved this assertion the most time when
+- ***Influence time benefited*** What other assertion saved this assertion the most time when
 they proved first, ranked by total time saved (ordered list)
 
 ### Advanced Testrun
@@ -142,26 +142,26 @@ We reccommend running the entire script in a tmux session or similar environment
 After the advanced testruns are done, the results can be evaluated with the advanced_test_analyzer.py script. To do this, simply change the relevant file and directory names at the bottom of the script, as well as any parameters so they are the same as the parameters used in the experimenst that are to be evaluated and then let it run. The resulting table evaluates the advanced metrics defined in my thesis, where I also explain in detail what each of the metrics means.
 
 #### Metric Description
-***Success Chance*** Ratio of invariant assertion reaching proof (not related to
+- ***Success Chance*** Ratio of invariant assertion reaching proof (not related to
 success of result assertion)
-***Average time on proof*** Average time to infinity bound proof for assertion
-***Average bound on fail*** Average bound that was reached when no proof was found
+- ***Average time on proof*** Average time to infinity bound proof for assertion
+- ***Average bound on fail*** Average bound that was reached when no proof was found
 for assertion
-***Average time to bound on fail*** Average time that highest bound that attempt was reached
-***Fastest time for highest bound*** Highest bound reached with corresponding fastest time and
+- ***Average time to bound on fail*** Average time that highest bound that attempt was reached
+- ***Fastest time for highest bound*** Highest bound reached with corresponding fastest time and
 experiment number
-***Part of best result*** Whether this invariant assertion was active in the experi-
+- ***Part of best result*** Whether this invariant assertion was active in the experi-
 ment where the result assertion reached its highest bound
 the fastest
-***Influence on proof*** Amount of times another assertion proved while this one was
+- ***Influence on proof*** Amount of times another assertion proved while this one was
 active
-***Influence on time to proof*** How much time other assertions saved when reaching a proof
+- ***Influence on time to proof*** How much time other assertions saved when reaching a proof
 while this one was active
-***Influence on bound*** Amount of times another assertion reached a higher bound
+- ***Influence on bound*** Amount of times another assertion reached a higher bound
 than average while this one was active
-***Influence benefited to proof time*** What other assertions accelerated the proof speed of this as-
+- ***Influence benefited to proof time*** What other assertions accelerated the proof speed of this as-
 sertion the most (ordered list)
-***Influence benefited to bound*** What other assertions increased the bound of this assertion
+- ***Influence benefited to bound*** What other assertions increased the bound of this assertion
 the most (ordered list)
 
 
